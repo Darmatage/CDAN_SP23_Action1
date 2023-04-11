@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerJump : MonoBehaviour {
 
       //public Animator anim;
-      public Rigidbody2D rb;
-      public float jumpForce = 20f;
+      private Rigidbody2D rb;
+      public float jumpForce = 10f;
       public Transform feet;
       public LayerMask groundLayer;
       public LayerMask enemyLayer;
@@ -20,21 +20,21 @@ public class PlayerJump : MonoBehaviour {
             rb = GetComponent<Rigidbody2D>();
       }
 
-     void Update() {
-            if ((IsGrounded()) || (jumpTimes <= 1)){
-                  canJump = true;
-            }  else if (jumpTimes > 1){
-                  canJump = false;
-            }
+	void Update() {
+		if ((IsGrounded()) || (jumpTimes < 1)){ //normally should be <= 1, but first jump is not updating jumpTimes
+			canJump = true;
+		}  else if (jumpTimes > 0){ //normally should be >1, but first jump is not updating jumpTimes
+			canJump = false;
+		}
 
-           if ((Input.GetButtonDown("Jump")) && (canJump) && (isAlive == true)) {
-                  Jump();
-            }
-      }
+		if ((Input.GetButtonDown("Jump")) && (canJump) && (isAlive == true)) {
+			Jump();
+		}
+	}
 
       public void Jump() {
-            jumpTimes += 1;
             rb.velocity = Vector2.up * jumpForce;
+			jumpTimes += 1;
             // anim.SetTrigger("Jump");
             // JumpSFX.Play();
 
@@ -43,8 +43,8 @@ public class PlayerJump : MonoBehaviour {
       }
 
       public bool IsGrounded() {
-            Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 2f, groundLayer);
-            Collider2D enemyCheck = Physics2D.OverlapCircle(feet.position, 2f, enemyLayer);
+            Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 1f, groundLayer);
+            Collider2D enemyCheck = Physics2D.OverlapCircle(feet.position, 1f, enemyLayer);
             if ((groundCheck != null) || (enemyCheck != null)) {
                   //Debug.Log("I am trouching ground!");
                   jumpTimes = 0;
