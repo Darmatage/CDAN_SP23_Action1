@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4281477405080962707}
   - component: {fileID: 975109606910097602}
   - component: {fileID: 2498269520619022305}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Obstacle_Moveable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,10 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e05f549693ae645ac76eba5e335a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisScene: 
   artPast: {fileID: 7836764925924121080}
   artFuture: {fileID: 5313082562675776007}
-  isPast: 0
+  isMoveable: 1
 --- !u!1 &7836764925924121080
 GameObject:
   m_ObjectHideFlags: 0

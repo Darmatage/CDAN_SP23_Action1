@@ -22,6 +22,10 @@ public class GameHandler_TimeStates : MonoBehaviour{
 	//Objects
 	public Obstacle_TimeState[] obstacles;
 
+	//music
+	public AudioSource musicPast;
+	public AudioSource musicFuture;
+
 
 	void Awake(){
 		playerOBJ = GameObject.FindWithTag("Player");
@@ -35,10 +39,14 @@ public class GameHandler_TimeStates : MonoBehaviour{
 			BG_Future.SetActive(false);
 			BG_Past.SetActive(true);
 			mainCamera.backgroundColor = cameraPastColor;
+			musicPast.Play();
+			musicFuture.Stop();
 		} else {
 			BG_Future.SetActive(true);
 			BG_Past.SetActive(false);
 			mainCamera.backgroundColor = cameraFutureColor;
+			musicPast.Stop();
+			musicFuture.Play();
 		}
     }
 
@@ -51,12 +59,16 @@ public class GameHandler_TimeStates : MonoBehaviour{
 				BG_Past.SetActive(true);
 				mainCamera.backgroundColor = cameraPastColor;
 				ChangeObjects();
+				musicPast.Play();
+				musicFuture.Stop();
 			} else {
 				isPast = false;
 				BG_Future.SetActive(true);
 				BG_Past.SetActive(false);
 				mainCamera.backgroundColor = cameraFutureColor;
 				ChangeObjects();
+				musicPast.Stop();
+				musicFuture.Play();
 			}
 		}  
     }
