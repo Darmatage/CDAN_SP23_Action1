@@ -123,6 +123,45 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &79287193 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7243631758005270546, guid: fad6f33c4b6582c44a964c93f60a2fc8, type: 3}
+  m_PrefabInstance: {fileID: 1535825601}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &79287194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79287193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccf1c10b028a314091edbf71deda7be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextLevel: Level 4
+--- !u!50 &79287198
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79287193}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &249388831
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +570,7 @@ PrefabInstance:
       objectReference: {fileID: 1649107475}
     - target: {fileID: 4347364580275773677, guid: 680a5437bef77634c9a86c81bcab4849, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4347364580275773677, guid: 680a5437bef77634c9a86c81bcab4849, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4971,7 +5010,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 63800098852620322, guid: acb88c77cb438394bbde26ed0ee4efa9, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 63800098852620322, guid: acb88c77cb438394bbde26ed0ee4efa9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5080,7 +5119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8194880997948989431, guid: fad6f33c4b6582c44a964c93f60a2fc8, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8194880997948989431, guid: fad6f33c4b6582c44a964c93f60a2fc8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6421,7 +6460,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5696020096942413517, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5696020096942413517, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
       propertyPath: m_LocalPosition.x
