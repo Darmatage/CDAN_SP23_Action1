@@ -29,6 +29,8 @@ public class GameHandler_TimeStates : MonoBehaviour{
 	//music
 	public AudioSource musicPast;
 	public AudioSource musicFuture;
+	private float stopPastTimestamp = 0.0f;
+	private float stopFutureTimestamp = 0.0f;
 
 
 	void Awake(){
@@ -62,8 +64,8 @@ public class GameHandler_TimeStates : MonoBehaviour{
 		BG_Past.SetActive(true);
 		mainCamera.backgroundColor = cameraPastColor;
 		ChangeObjects();
-		musicPast.Play();
-		musicFuture.Stop();
+		StopMusic("future");
+		PlayMusicAtTime("past");
 		NPCs_Past.SetActive(true);
 		NPCs_Future.SetActive(false);
 	}
@@ -74,8 +76,8 @@ public class GameHandler_TimeStates : MonoBehaviour{
 		BG_Past.SetActive(false);
 		mainCamera.backgroundColor = cameraFutureColor;
 		ChangeObjects();
-		musicPast.Stop();
-		musicFuture.Play();
+		StopMusic("past");
+		PlayMusicAtTime("future");
 		NPCs_Past.SetActive(false);
 		NPCs_Future.SetActive(true);
 	}
@@ -87,7 +89,49 @@ public class GameHandler_TimeStates : MonoBehaviour{
         }
     }
 
-	
+	//Music Management
+	public void PlayMusicAtBegin(string timeZone){
+		if (timeZone == "past"){
+			musicPast.time = 0.0f;
+			musicPast.Play();
+		} else if (timeZone == "future"){
+			musicFuture.time = 0.0f;
+			musicFuture.Play();
+		}
+	}
+
+	public void StopMusic(string timeZone){
+		if (timeZone == "past"){
+			stopPastTimestamp = musicPast.time;
+			Debug.Log("Stopped Past audio at: " + stopPastTimestamp);
+			musicPast.Stop();
+		}
+		else if (timeZone == "future"){
+			stopFutureTimestamp = musicFuture.time;
+			Debug.Log("Stopped Future audio at: " + stopFutureTimestamp);
+			musicFuture.Stop();
+		}
+	}
+
+	public void PlayMusicAtTime(string timeZone){
+		if  (timeZone == "past"){
+			if (stopFutureTimestamp > musicPast.clip.length){
+				return;
+			} else {
+				musicPast.time = stopFutureTimestamp;
+				musicPast.Play();
+			}
+		}
+		else if  (timeZone == "future"){
+			if (stopPastTimestamp > musicFuture.clip.length){
+				return;
+			} else {
+				musicFuture.time = stopPastTimestamp;
+				musicFuture.Play();
+			}
+		}
+	}
+
 }
 
 	// one-way colliding platforms:
