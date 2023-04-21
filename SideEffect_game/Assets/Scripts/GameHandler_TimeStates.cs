@@ -22,6 +22,10 @@ public class GameHandler_TimeStates : MonoBehaviour{
 	//Objects
 	public Obstacle_TimeState[] obstacles;
 
+	//NPCs
+	public GameObject NPCs_Past;
+	public GameObject NPCs_Future;
+
 	//music
 	public AudioSource musicPast;
 	public AudioSource musicFuture;
@@ -36,42 +40,46 @@ public class GameHandler_TimeStates : MonoBehaviour{
 
     void Start(){
 		if (isPast==true){
-			BG_Future.SetActive(false);
-			BG_Past.SetActive(true);
-			mainCamera.backgroundColor = cameraPastColor;
-			musicPast.Play();
-			musicFuture.Stop();
+			goToPast();
 		} else {
-			BG_Future.SetActive(true);
-			BG_Past.SetActive(false);
-			mainCamera.backgroundColor = cameraFutureColor;
-			musicPast.Stop();
-			musicFuture.Play();
+			goToFuture();
 		}
     }
-
 
 	void Update(){
 		if ((Input.GetKeyDown("t"))&&(GameHandler_TimeStates.canTimeSwitch==true)){
 			if (isPast == false){
-				isPast = true;
-				BG_Future.SetActive(false);
-				BG_Past.SetActive(true);
-				mainCamera.backgroundColor = cameraPastColor;
-				ChangeObjects();
-				musicPast.Play();
-				musicFuture.Stop();
+				goToPast();
 			} else {
-				isPast = false;
-				BG_Future.SetActive(true);
-				BG_Past.SetActive(false);
-				mainCamera.backgroundColor = cameraFutureColor;
-				ChangeObjects();
-				musicPast.Stop();
-				musicFuture.Play();
+				goToFuture();
 			}
 		}  
     }
+	
+	public void goToPast(){
+		isPast = true;
+		BG_Future.SetActive(false);
+		BG_Past.SetActive(true);
+		mainCamera.backgroundColor = cameraPastColor;
+		ChangeObjects();
+		musicPast.Play();
+		musicFuture.Stop();
+		NPCs_Past.SetActive(true);
+		NPCs_Future.SetActive(false);
+	}
+	
+	public void goToFuture(){
+		isPast = false;
+		BG_Future.SetActive(true);
+		BG_Past.SetActive(false);
+		mainCamera.backgroundColor = cameraFutureColor;
+		ChangeObjects();
+		musicPast.Stop();
+		musicFuture.Play();
+		NPCs_Past.SetActive(false);
+		NPCs_Future.SetActive(true);
+	}
+	
 	
 	public void ChangeObjects(){
 		foreach (Obstacle_TimeState obst in obstacles) {
