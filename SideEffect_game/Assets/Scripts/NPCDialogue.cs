@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class NPCDialogue : MonoBehaviour {
        //private Animator anim;
+	   
+	   public int whichNPC = 1; // set this number for the NPC. 1 = your kid
+	   
        private NPCDialogueManager dialogueMNGR;
        public string[] dialogue; //enter dialogue lines into the inspector for each NPC
        public bool playerInRange = false; //could be used to display an image: hit [e] to talk
@@ -22,6 +25,7 @@ public class NPCDialogue : MonoBehaviour {
               if (other.gameObject.tag == "Player") {
                      playerInRange = true;
                      dialogueMNGR.LoadDialogueArray(dialogue, dialogueLength);
+					 dialogueMNGR.ChooseNPC(whichNPC);
                      dialogueMNGR.OpenDialogue();
                      //anim.SetBool("Chat", true);
                      //Debug.Log("Player in range");
