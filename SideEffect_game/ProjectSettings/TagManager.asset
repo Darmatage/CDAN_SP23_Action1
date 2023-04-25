@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - GameHandler
   - DialogueManager
+  - PauseMenuSlider
   layers:
   - Default
   - TransparentFX

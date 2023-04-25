@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class GameHandler : MonoBehaviour {
 
@@ -21,14 +22,63 @@ public class GameHandler : MonoBehaviour {
 
       private string sceneName;
 
-      void Start(){
+	//Pause menu
+	public static bool GameisPaused = false;
+	public GameObject pauseMenuUI;
+	public AudioMixer mixer;
+	public static float volumeLevel = 1.0f;
+	private Slider sliderVolumeCtrl;
+
+	void Awake (){
+		SetLevel (volumeLevel);
+		GameObject sliderTemp = GameObject.FindWithTag("PauseMenuSlider");
+		if (sliderTemp != null){
+			sliderVolumeCtrl = sliderTemp.GetComponent<Slider>();
+			sliderVolumeCtrl.value = volumeLevel;
+		}
+	}
+
+	void Start(){
             player = GameObject.FindWithTag("Player");
             sceneName = SceneManager.GetActiveScene().name;
             //if (sceneName=="MainMenu"){ //uncomment these two lines when the MainMenu exists
                   playerHealth = StartPlayerHealth;
             //}
             updateStatsDisplay();
-      }
+		
+		//pause menu
+		pauseMenuUI.SetActive(false);
+		GameisPaused = false;
+	}
+
+	void Update (){
+		if (Input.GetKeyDown(KeyCode.Escape)){
+			if (GameisPaused){
+				Resume();
+			}
+			else{
+				Pause();
+			}
+		}
+	}
+
+	void Pause(){
+		pauseMenuUI.SetActive(true);
+		Time.timeScale = 0f;
+		GameisPaused = true;
+	}
+
+	public void Resume(){
+		pauseMenuUI.SetActive(false);
+		Time.timeScale = 1f;
+		GameisPaused = false;
+	}
+
+	public void SetLevel (float sliderValue){
+		mixer.SetFloat("MusicVolume", Mathf.Log10 (sliderValue) * 20);
+		volumeLevel = sliderValue;
+	} 
+
 
       public void playerGetTokens(int newTokens){
             gotTokens += newTokens;
@@ -56,47 +106,48 @@ public class GameHandler : MonoBehaviour {
                   updateStatsDisplay();
                   playerDies();
             }
-      }
+	}
 
-      public void updateStatsDisplay(){
-            Text healthTextTemp = healthText.GetComponent<Text>();
-            healthTextTemp.text = "HEALTH: " + playerHealth;
+	public void updateStatsDisplay(){
+		Text healthTextTemp = healthText.GetComponent<Text>();
+		healthTextTemp.text = "HEALTH: " + playerHealth;
 
-            Text tokensTextTemp = tokensText.GetComponent<Text>();
-            tokensTextTemp.text = "GOLD: " + gotTokens;
-      }
+		Text tokensTextTemp = tokensText.GetComponent<Text>();
+		tokensTextTemp.text = "GOLD: " + gotTokens;
+	}
 
-      public void playerDies(){
-            player.GetComponent<PlayerHurt>().playerDead();       //play Death animation
-            StartCoroutine(DeathPause());
-      }
+	public void playerDies(){
+		player.GetComponent<PlayerHurt>().playerDead();       //play Death animation
+		StartCoroutine(DeathPause());
+	}
 
-      IEnumerator DeathPause(){
-            player.GetComponent<PlayerMove>().isAlive = false;
-            player.GetComponent<PlayerJump>().isAlive = false;
-            yield return new WaitForSeconds(1.0f);
-            SceneManager.LoadScene("EndLose");
-      }
+	IEnumerator DeathPause(){
+		player.GetComponent<PlayerMove>().isAlive = false;
+		player.GetComponent<PlayerJump>().isAlive = false;
+		yield return new WaitForSeconds(1.0f);
+		SceneManager.LoadScene("EndLose");
+	}
 
-      public void StartGame() {
-            SceneManager.LoadScene("Level_1");
-      }
+	public void StartGame() {
+		SceneManager.LoadScene("Level_1");
+	}
 
-      public void RestartGame() {
-            SceneManager.LoadScene("MainMenu");
-                // Please also reset all static variables here, for new games!
-            playerHealth = StartPlayerHealth;
-      }
+	public void RestartGame() {
+		Time.timeScale = 1f;
+		SceneManager.LoadScene("MainMenu");
+		// Please also reset all static variables here, for new games!
+		playerHealth = StartPlayerHealth;
+	}
 
-      public void QuitGame() {
-                #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-                #else
-                Application.Quit();
-                #endif
-      }
+	public void QuitGame() {
+		#if UNITY_EDITOR
+		UnityEditor.EditorApplication.isPlaying = false;
+		#else
+		Application.Quit();
+		#endif
+	}
 
-      public void Credits() {
-            SceneManager.LoadScene("Credits");
-      }
+	public void Credits() {
+		SceneManager.LoadScene("Credits");
+	}
 }
