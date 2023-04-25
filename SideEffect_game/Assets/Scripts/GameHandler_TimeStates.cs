@@ -22,9 +22,15 @@ public class GameHandler_TimeStates : MonoBehaviour{
 	//Objects
 	public Obstacle_TimeState[] obstacles;
 
+	//NPCs
+	public GameObject NPCs_Past;
+	public GameObject NPCs_Future;
+
 	//music
 	public AudioSource musicPast;
 	public AudioSource musicFuture;
+	private float stopPastTimestamp = 0.0f;
+	private float stopFutureTimestamp = 0.0f;
 
 
 	void Awake(){
@@ -36,17 +42,9 @@ public class GameHandler_TimeStates : MonoBehaviour{
 
     void Start(){
 		if (isPast==true){
-			BG_Future.SetActive(false);
-			BG_Past.SetActive(true);
-			mainCamera.backgroundColor = cameraPastColor;
-			musicPast.Play();
-			musicFuture.Stop();
+			goToPast();
 		} else {
-			BG_Future.SetActive(true);
-			BG_Past.SetActive(false);
-			mainCamera.backgroundColor = cameraFutureColor;
-			musicPast.Stop();
-			musicFuture.Play();
+			goToFuture();
 		}
     }
 
@@ -54,30 +52,85 @@ public class GameHandler_TimeStates : MonoBehaviour{
 	void Update(){
 		if ((Input.GetKeyDown("t"))&&(GameHandler_TimeStates.canTimeSwitch==true)){
 			if (isPast == false){
-				isPast = true;
-				BG_Future.SetActive(false);
-				BG_Past.SetActive(true);
-				mainCamera.backgroundColor = cameraPastColor;
-				ChangeObjects();
-				musicPast.Play();
-				musicFuture.Stop();
+				goToPast();
 			} else {
-				isPast = false;
-				BG_Future.SetActive(true);
-				BG_Past.SetActive(false);
-				mainCamera.backgroundColor = cameraFutureColor;
-				ChangeObjects();
-				musicPast.Stop();
-				musicFuture.Play();
+				goToFuture();
 			}
 		}  
     }
 	
+	public void goToPast(){
+		isPast = true;
+		BG_Future.SetActive(false);
+		BG_Past.SetActive(true);
+		mainCamera.backgroundColor = cameraPastColor;
+		ChangeObjects();
+		StopMusic("future");
+		PlayMusicAtTime("past");
+		NPCs_Past.SetActive(true);
+		NPCs_Future.SetActive(false);
+	}
+	
+	public void goToFuture(){
+		isPast = false;
+		BG_Future.SetActive(true);
+		BG_Past.SetActive(false);
+		mainCamera.backgroundColor = cameraFutureColor;
+		ChangeObjects();
+		StopMusic("past");
+		PlayMusicAtTime("future");
+		NPCs_Past.SetActive(false);
+		NPCs_Future.SetActive(true);
+	}
+
 	public void ChangeObjects(){
 		foreach (Obstacle_TimeState obst in obstacles) {
             obst.SetTime();
         }
     }
+
+	//Music Management
+	public void PlayMusicAtBegin(string timeZone){
+		if (timeZone == "past"){
+			musicPast.time = 0.0f;
+			musicPast.Play();
+		} else if (timeZone == "future"){
+			musicFuture.time = 0.0f;
+			musicFuture.Play();
+		}
+	}
+
+	public void StopMusic(string timeZone){
+		if (timeZone == "past"){
+			stopPastTimestamp = musicPast.time;
+			Debug.Log("Stopped Past audio at: " + stopPastTimestamp);
+			musicPast.Stop();
+		}
+		else if (timeZone == "future"){
+			stopFutureTimestamp = musicFuture.time;
+			Debug.Log("Stopped Future audio at: " + stopFutureTimestamp);
+			musicFuture.Stop();
+		}
+	}
+
+	public void PlayMusicAtTime(string timeZone){
+		if  (timeZone == "past"){
+			if (stopFutureTimestamp > musicPast.clip.length){
+				return;
+			} else {
+				musicPast.time = stopFutureTimestamp;
+				musicPast.Play();
+			}
+		}
+		else if  (timeZone == "future"){
+			if (stopPastTimestamp > musicFuture.clip.length){
+				return;
+			} else {
+				musicFuture.time = stopPastTimestamp;
+				musicFuture.Play();
+			}
+		}
+	}
 
 	
 }
