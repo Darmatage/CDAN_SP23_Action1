@@ -44,10 +44,9 @@ GameObject:
   - component: {fileID: 6549580234155962303}
   - component: {fileID: 6549580234155962302}
   - component: {fileID: 6549580234155962290}
-  - component: {fileID: 210165103169116953}
   m_Layer: 0
-  m_Name: Enemy_MoveHit 1
-  m_TagString: Untagged
+  m_Name: Enemy_MoveHit
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +102,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.19729173, y: -0.16247582}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -114,7 +113,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 1}
+  m_Size: {x: 2.015859, y: 3.4139242}
   m_EdgeRadius: 0
 --- !u!114 &6549580234155962302
 MonoBehaviour:
@@ -128,8 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4d2db2a714a46c4db26d0678e8476aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  rb2D: {fileID: 0}
   speed: 4
   damage: 10
   knockBackForce: 10
@@ -148,30 +145,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5058fe8a9f76d6748ba3db0d1e286ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  healthLoot: {fileID: 0}
+  healthLoot: {fileID: 4214061882296684411, guid: 2617ccc420112dd48881dff4f1bc90fe, type: 3}
   maxHealth: 100
   currentHealth: 0
---- !u!95 &210165103169116953
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6549580234155962301}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 29462e3be10687446854b45457d50cb0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6549580235052789953
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6549580235052789954}
   - component: {fileID: 6549580235052789955}
-  - component: {fileID: 4250781609694647526}
+  - component: {fileID: 1879773039184298190}
   m_Layer: 0
   m_Name: Art_Enemy
   m_TagString: Untagged
@@ -257,7 +233,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &4250781609694647526
+--- !u!95 &1879773039184298190
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -267,7 +243,7 @@ Animator:
   m_GameObject: {fileID: 6549580235052789953}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 29462e3be10687446854b45457d50cb0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1c34945bb0717e7429504c82ff3e90ae, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
