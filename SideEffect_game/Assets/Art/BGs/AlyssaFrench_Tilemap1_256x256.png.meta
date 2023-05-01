@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -5626,28 +5626,28 @@ TextureImporter:
       AlyssaFrench_Tilemap1_256x256_162: 1930564898
       AlyssaFrench_Tilemap1_256x256_75: 1165919732
       AlyssaFrench_Tilemap1_256x256_228: 916203190
+      AlyssaFrench_Tilemap1_256x256_203: 64234416
       AlyssaFrench_Tilemap1_256x256_53: 500954951
       AlyssaFrench_Tilemap1_256x256_118: 698698737
-      AlyssaFrench_Tilemap1_256x256_195: 1279377281
       AlyssaFrench_Tilemap1_256x256_119: -560370805
       AlyssaFrench_Tilemap1_256x256_101: 1682278594
+      AlyssaFrench_Tilemap1_256x256_195: 1279377281
       AlyssaFrench_Tilemap1_256x256_134: -885847472
       AlyssaFrench_Tilemap1_256x256_161: 1112673993
-      AlyssaFrench_Tilemap1_256x256_127: -1742308736
+      AlyssaFrench_Tilemap1_256x256_140: 360693169
       AlyssaFrench_Tilemap1_256x256_10: -1967850745
       AlyssaFrench_Tilemap1_256x256_181: 96920436
-      AlyssaFrench_Tilemap1_256x256_140: 360693169
+      AlyssaFrench_Tilemap1_256x256_127: -1742308736
       AlyssaFrench_Tilemap1_256x256_52: -416912499
       AlyssaFrench_Tilemap1_256x256_40: -1963223184
       AlyssaFrench_Tilemap1_256x256_112: -1856666903
       AlyssaFrench_Tilemap1_256x256_48: -553143028
-      AlyssaFrench_Tilemap1_256x256_93: -1741679502
       AlyssaFrench_Tilemap1_256x256_143: 693201664
+      AlyssaFrench_Tilemap1_256x256_93: -1741679502
       AlyssaFrench_Tilemap1_256x256_210: 1609227518
-      AlyssaFrench_Tilemap1_256x256_203: 64234416
       AlyssaFrench_Tilemap1_256x256_77: 227893165
-      AlyssaFrench_Tilemap1_256x256_208: 803113326
       AlyssaFrench_Tilemap1_256x256_219: 126292722
+      AlyssaFrench_Tilemap1_256x256_208: 803113326
       AlyssaFrench_Tilemap1_256x256_19: 362991468
       AlyssaFrench_Tilemap1_256x256_238: 1529812317
       AlyssaFrench_Tilemap1_256x256_96: -1924508842
@@ -5658,12 +5658,12 @@ TextureImporter:
       AlyssaFrench_Tilemap1_256x256_46: 1752054373
       AlyssaFrench_Tilemap1_256x256_80: 134387981
       AlyssaFrench_Tilemap1_256x256_83: -379710169
-      AlyssaFrench_Tilemap1_256x256_84: 39500328
-      AlyssaFrench_Tilemap1_256x256_100: -1850981670
       AlyssaFrench_Tilemap1_256x256_85: 184766522
-      AlyssaFrench_Tilemap1_256x256_251: 1046468438
-      AlyssaFrench_Tilemap1_256x256_186: -1088539679
+      AlyssaFrench_Tilemap1_256x256_100: -1850981670
       AlyssaFrench_Tilemap1_256x256_235: 988872048
+      AlyssaFrench_Tilemap1_256x256_84: 39500328
+      AlyssaFrench_Tilemap1_256x256_186: -1088539679
+      AlyssaFrench_Tilemap1_256x256_251: 1046468438
       AlyssaFrench_Tilemap1_256x256_222: 319269188
       AlyssaFrench_Tilemap1_256x256_166: 575171830
       AlyssaFrench_Tilemap1_256x256_72: 923384939
