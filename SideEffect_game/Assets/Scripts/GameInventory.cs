@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameInventory : MonoBehaviour {
+	private Transform playerPos;
+	public GameObject trapSystemPrefab; // the prefab for the Trap, to be spawned from inventory
       public GameObject InventoryMenu;
       //public GameObject CraftMenu;
       public bool InvIsOpen = false;
@@ -13,13 +15,13 @@ public class GameInventory : MonoBehaviour {
       public static bool item2bool = false;
       public static bool item3bool = false;
       public static bool item4bool = false;
-     // public static bool item5bool = false;
+		public static bool item5bool = false;
 
       public static int item1num = 0;
       public static int item2num = 0;
       public static int item3num = 0;
       public static int item4num = 0;
-     // public static int item5num = 0;
+     public static int item5num = 0;
       //public static int coins = 0;
 
       [Header("Add item image objects here")]
@@ -27,7 +29,7 @@ public class GameInventory : MonoBehaviour {
       public GameObject item2image;
       public GameObject item3image;
       public GameObject item4image;
-     // public GameObject item5image;
+     public GameObject item5image;
       //public GameObject coinText;
 
       // Item number text variables. Comment out if each item is unique (1/2).
@@ -36,15 +38,17 @@ public class GameInventory : MonoBehaviour {
       public Text item2Text;
       public Text item3Text;
       public Text item4Text;
-     // public Text item5Text;
+     public Text item5Text;
 
       // Crafting buttons. Uncomment and add for each button:
       // public GameObject buttonCraft1; // weapon1 creation
  
       void Start(){
-            InventoryMenu.SetActive(false);
+		  InventoryMenu.SetActive(false);
+		  playerPos= GameObject.FindWithTag("Player").GetComponent<Transform>();
+            
             //CraftMenu.SetActive(false);
-            InventoryDisplay();
+          InventoryDisplay();
       }
 
       void InventoryDisplay(){
@@ -52,7 +56,7 @@ public class GameInventory : MonoBehaviour {
             if (item2bool == true) {item2image.SetActive(true);} else {item2image.SetActive(false);}
             if (item3bool == true) {item3image.SetActive(true);} else {item3image.SetActive(false);}
             if (item4bool == true) {item4image.SetActive(true);} else {item4image.SetActive(false);}
-       //     if (item5bool == true) {item5image.SetActive(true);} else {item5image.SetActive(false);}
+            if (item5bool == true) {item5image.SetActive(true);} else {item5image.SetActive(false);}
 
             //Text coinTextB = coinText.GetComponent<Text>();
             //coinTextB.text = ("COINS: " + coins);
@@ -70,8 +74,8 @@ public class GameInventory : MonoBehaviour {
             Text item4TextB = item4Text.GetComponent<Text>();
             item4TextB.text = ("" + item4num);
 
-          //  Text item5TextB = item5Text.GetComponent<Text>();
-           // item5TextB.text = ("" + item5num);
+            Text item5TextB = item5Text.GetComponent<Text>();
+            item5TextB.text = ("" + item5num);
       }
 
       public void InventoryAdd(string item){
@@ -80,7 +84,7 @@ public class GameInventory : MonoBehaviour {
             else if (foundItemName == "item2") {item2bool = true; item2num ++;}
             else if (foundItemName == "item3") {item3bool = true; item3num ++;}
             else if (foundItemName == "item4") {item4bool = true; item4num ++;}
-          //  else if (foundItemName == "item5") {item5bool = true; item5num ++;}
+            else if (foundItemName == "item5") {item5bool = true; item5num ++;}
             else { Debug.Log("This item does not exist to be added"); }
             InventoryDisplay();
 
@@ -111,13 +115,13 @@ public class GameInventory : MonoBehaviour {
                   if (item4num <= 0) { item4bool =false; }
                     // Add any other intended effects
             }
-          /*
+          
 		   else if (itemRemove == "item5") {
                   item5num -= num;
                   if (item5num <= 0) { item5bool =false; }
                     // Add any other intended effects
             }
-			*/
+			
             else { Debug.Log("This item does not exist to be removed"); }
             InventoryDisplay();
       }
@@ -144,17 +148,17 @@ public class GameInventory : MonoBehaviour {
             item2bool = false;
             item3bool = false;
             item4bool = false;
-          //  item5bool = false;
+            item5bool = false;
 
             item1num = 0; // object name
             item2num = 0; // object name
             item3num = 0; // object name
             item4num = 0; // object name
-          //  item5num = 0; // object name
+            item5num = 0; // object name
       }
 
 	public void ButtonItem1(){
-		//ju-lee, do the thing
+		//key, does not need button (door uses/removes)
 		InventoryRemove("item1", 1);
 	}
 
@@ -171,6 +175,13 @@ public class GameInventory : MonoBehaviour {
 	public void ButtonItem4(){
 		//ju-lee, do the thing
 		InventoryRemove("item4", 1);
+	}
+	
+	public void ButtonItem5(){
+		//spawn trap. Button instantiates at player position?
+		InventoryRemove("item5", 1);
+		Vector2 cagePos = new Vector2(playerPos.position.x, -1.7f);
+		GameObject newTrap = Instantiate(trapSystemPrefab, cagePos, Quaternion.identity);
 	}
 	
 }

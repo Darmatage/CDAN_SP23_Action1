@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour{
 
-      public GameHandler gameHandler;
+      private GameHandler gameHandler;
       //public playerVFX playerPowerupVFX;
       public bool isHealthPickUp = true;
       public bool isKey = false;
 	  public bool isScrewdriver = false;
+	  public bool isTrap = false;
 	  public bool isMachinePart1 = false;
 	  public bool isMachinePart2 = false;
 	  //public bool isMachinePart3 = false;
@@ -52,7 +53,12 @@ public class PickUp : MonoBehaviour{
                   if (isMachinePart2 == true) {
                         gameHandler.GetComponent<GameInventory>().InventoryAdd("item4");
                         //playerPowerupVFX.powerup();
-                  }				  
+                  }		
+
+				if (isTrap == true) {
+                        gameHandler.GetComponent<GameInventory>().InventoryAdd("item5");
+                        //playerPowerupVFX.powerup();
+                  }					  
 
 
                  // if (isSpeedBoostPickUp == true) {
