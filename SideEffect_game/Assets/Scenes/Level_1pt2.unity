@@ -5700,6 +5700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   camSpeed: 4
+  offsetY: 10
 --- !u!1 &1141006438
 GameObject:
   m_ObjectHideFlags: 0

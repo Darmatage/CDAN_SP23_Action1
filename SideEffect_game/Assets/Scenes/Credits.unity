@@ -682,13 +682,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Name1
+  m_Text: 'Aly French
 
-    Name 2
+    Ashley Dow
 
-    Name 3
+    Jeffery Newton
 
-    Name 4'
+    Stacy Santos'
 --- !u!222 &1502718488
 CanvasRenderer:
   m_ObjectHideFlags: 0
