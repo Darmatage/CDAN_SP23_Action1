@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 public class NPC_PatrolSequencePoints : MonoBehaviour {
-       // private Animator anim;
+        private Animator anim;
        public float speed = 10f;
        private float waitTime;
        public float startWaitTime = 2f;
@@ -15,14 +15,14 @@ public class NPC_PatrolSequencePoints : MonoBehaviour {
 	// Turning
 	private int nextSpot;
 	private int previousSpot;
-	public bool faceRight = true;
+	public bool faceRight = false;
 
 	private bool inCage = false;
 
 	void Start(){
               waitTime = startWaitTime;
               nextSpot = startSpot;
-              //anim = gameObject.GetComponentInChildren<Animator>();
+              anim = gameObject.GetComponentInChildren<Animator>();
 	}
 
        void Update(){
@@ -34,8 +34,10 @@ public class NPC_PatrolSequencePoints : MonoBehaviour {
                             if (moveForward == true){ previousSpot = nextSpot; nextSpot += 1; }
                             else if (moveForward == false){ previousSpot = nextSpot; nextSpot -= 1; }
                             waitTime = startWaitTime;
+							anim.SetBool("walk", true);
                      } else {
                             waitTime -= Time.deltaTime;
+							anim.SetBool("walk", false);
                      }
               }
 
