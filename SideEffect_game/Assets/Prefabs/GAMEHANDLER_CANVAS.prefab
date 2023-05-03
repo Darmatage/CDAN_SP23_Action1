@@ -1755,6 +1755,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3717290088004097594, guid: a06bcf12fb8fbdc4f9cf4d5358d8bf75, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717290088004097594, guid: a06bcf12fb8fbdc4f9cf4d5358d8bf75, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 675bdf2bb15b89248b1c2ae34981925c, type: 3}
     - target: {fileID: 5290934657871579040, guid: a06bcf12fb8fbdc4f9cf4d5358d8bf75, type: 3}
       propertyPath: m_Name
       value: Inv_Button1
@@ -1969,6 +1977,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3717290088004097594, guid: a06bcf12fb8fbdc4f9cf4d5358d8bf75, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717290088004097594, guid: a06bcf12fb8fbdc4f9cf4d5358d8bf75, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 578dcdd7cc09c544f943eb8ccb48c726, type: 3}
     - target: {fileID: 5290934657871579040, guid: a06bcf12fb8fbdc4f9cf4d5358d8bf75, type: 3}
       propertyPath: m_Name
       value: Inv_Button3
@@ -2111,6 +2127,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3717290088004097594, guid: a06bcf12fb8fbdc4f9cf4d5358d8bf75, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717290088004097594, guid: a06bcf12fb8fbdc4f9cf4d5358d8bf75, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e2c79eae3183dd44690ad81c518c47e3, type: 3}
     - target: {fileID: 5290934657871579040, guid: a06bcf12fb8fbdc4f9cf4d5358d8bf75, type: 3}
       propertyPath: m_Name
       value: Inv_Button5
@@ -2253,6 +2277,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3717290088004097594, guid: a06bcf12fb8fbdc4f9cf4d5358d8bf75, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717290088004097594, guid: a06bcf12fb8fbdc4f9cf4d5358d8bf75, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6f232631460ec7e46b53b2624bcce86d, type: 3}
     - target: {fileID: 5290934657871579040, guid: a06bcf12fb8fbdc4f9cf4d5358d8bf75, type: 3}
       propertyPath: m_Name
       value: Inv_Button2
@@ -2338,6 +2370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d8cbedbbb6ff54aad56666c319eca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  makeIsPast: 0
   BG_Future: {fileID: 0}
   BG_Past: {fileID: 0}
   cameraFutureColor: {r: 0.2004984, g: 0.21449019, b: 0.3018868, a: 0}
@@ -2503,6 +2536,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3717290088004097594, guid: a06bcf12fb8fbdc4f9cf4d5358d8bf75, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717290088004097594, guid: a06bcf12fb8fbdc4f9cf4d5358d8bf75, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 273cc42ab3790db47b4e1ad77c7ba776, type: 3}
     - target: {fileID: 5290934657871579040, guid: a06bcf12fb8fbdc4f9cf4d5358d8bf75, type: 3}
       propertyPath: m_Name
       value: Inv_Button4
