@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour {
 	public GameObject target;
 	public float camSpeed = 4.0f;
 
-	public float offsetY = 10f;
+	private float offsetY = 2.5f;
 	private float theOffsetY;
 
 	void Start(){

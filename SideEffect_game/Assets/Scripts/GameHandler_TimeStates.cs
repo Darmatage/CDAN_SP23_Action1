@@ -11,6 +11,7 @@ public class GameHandler_TimeStates : MonoBehaviour{
 	private GameObject playerOBJ;
 
 	public static bool isPast = false;
+	public bool makeIsPast = false;
 
 	//Environment
 	public GameObject BG_Future;
@@ -41,6 +42,9 @@ public class GameHandler_TimeStates : MonoBehaviour{
 	}
 
     void Start(){
+		if (makeIsPast==true){
+			isPast = true;
+		}
 		if (isPast==true){
 			goToPast();
 		} else {
