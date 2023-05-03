@@ -54,7 +54,7 @@ public class GameHandler_TimeStates : MonoBehaviour{
 
 
 	void Update(){
-		if ((Input.GetKeyDown("t"))&&(GameHandler_TimeStates.canTimeSwitch==true)){
+		if ((Input.GetKeyDown("t"))&&(canTimeSwitch==true)){
 			if (isPast == false){
 				goToPast();
 			} else {
@@ -62,6 +62,17 @@ public class GameHandler_TimeStates : MonoBehaviour{
 			}
 		}  
     }
+	
+	public void SwitchTime(){
+		if (canTimeSwitch==true){
+			if (isPast == false){
+				goToPast();
+			} else {
+				goToFuture();
+			}
+		}
+	}
+	
 	
 	public void goToPast(){
 		isPast = true;

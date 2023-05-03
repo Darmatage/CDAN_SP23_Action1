@@ -7,20 +7,20 @@ using UnityEngine.Audio;
 
 public class GameHandler : MonoBehaviour {
 
-      private GameObject player;
-      public static int playerHealth = 100;
-      public int StartPlayerHealth = 100;
-      public GameObject healthText;
+	private GameObject player;
+	public static int playerHealth = 100;
+	public int StartPlayerHealth = 100;
+	public GameObject healthText;
 
-      public static int gotTokens = 0;
-      public GameObject tokensText;
+	//public static int gotTokens = 0;
+	//public GameObject tokensText;
 
-      public bool isDefending = false;
+	public bool isDefending = false;
 
-      public static bool stairCaseUnlocked = false;
+	public static bool stairCaseUnlocked = false;
       //this is a flag check. Add to other scripts: GameHandler.stairCaseUnlocked = true;
 
-      private string sceneName;
+	private string sceneName;
 
 	//Pause menu
 	public static bool GameisPaused = false;
@@ -79,11 +79,12 @@ public class GameHandler : MonoBehaviour {
 		volumeLevel = sliderValue;
 	} 
 
-
+	/*
       public void playerGetTokens(int newTokens){
             gotTokens += newTokens;
             updateStatsDisplay();
       }
+	  */
 
       public void playerGetHit(int damage){
            if (isDefending == false){
@@ -112,8 +113,8 @@ public class GameHandler : MonoBehaviour {
 		Text healthTextTemp = healthText.GetComponent<Text>();
 		healthTextTemp.text = "HEALTH: " + playerHealth;
 
-		Text tokensTextTemp = tokensText.GetComponent<Text>();
-		tokensTextTemp.text = "GOLD: " + gotTokens;
+		//Text tokensTextTemp = tokensText.GetComponent<Text>();
+		//tokensTextTemp.text = "GOLD: " + gotTokens;
 	}
 
 	public void playerDies(){
