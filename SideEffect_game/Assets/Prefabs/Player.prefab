@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab29c7b7f0d0b514bbae19166799c396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 5
+  jumpForce: 7
   feet: {fileID: 2088145241812411388}
   groundLayer:
     serializedVersion: 2
