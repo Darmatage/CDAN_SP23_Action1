@@ -18,6 +18,8 @@ public class EnemyMoveHit : MonoBehaviour {
        public float attackRange = 10;
        public bool isAttacking = false;
        private float scaleX;
+	   
+	   private bool inCage = false;
 
        void Start () {
               anim = GetComponentInChildren<Animator> ();
@@ -36,9 +38,9 @@ public class EnemyMoveHit : MonoBehaviour {
        void Update () {
               float DistToPlayer = Vector3.Distance(transform.position, target.position);
 
-              if ((target != null) && (DistToPlayer <= attackRange)){
+              if ((target != null) && (DistToPlayer <= attackRange)&&(!inCage)){
                      transform.position = Vector2.MoveTowards (transform.position, target.position, speed * Time.deltaTime);
-                    //anim.SetBool("Walk", true);
+                    anim.SetBool("walk", true);
                     //flip enemy to face player direction. Wrong direction? Swap the * -1.
                     if (target.position.x > gameObject.transform.position.x){
                                    gameObject.transform.localScale = new Vector2(scaleX, gameObject.transform.localScale.y);
@@ -46,13 +48,13 @@ public class EnemyMoveHit : MonoBehaviour {
                                     gameObject.transform.localScale = new Vector2(scaleX * -1, gameObject.transform.localScale.y);
                     }
               }
-               //else { anim.SetBool("Walk", false);}
+               else { anim.SetBool("walk", false);}
        }
 
 	    public void OnCollisionEnter2D(Collision2D other){
-              if (other.gameObject.tag == "Player") {
+              if ((other.gameObject.tag == "Player")&&(!inCage)) {
                      isAttacking = true;
-                     //anim.SetBool("Attack", true);
+                     anim.SetBool("attack", true);
                      gameHandler.playerGetHit(damage);
                      //rend.material.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
                      //StartCoroutine(HitEnemy());
@@ -66,9 +68,17 @@ public class EnemyMoveHit : MonoBehaviour {
        public void OnCollisionExit2D(Collision2D other){
               if (other.gameObject.tag == "Player") {
                      isAttacking = false;
-                     //anim.SetBool("Attack", false);
+                     anim.SetBool("attack", false);
               }
        }
+
+	//cage functionality:
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.gameObject.tag=="cage"){
+			inCage = true;
+		}
+	}
+
 
        //DISPLAY the range of enemy's attack when selected in the Editor
        void OnDrawGizmosSelected(){
