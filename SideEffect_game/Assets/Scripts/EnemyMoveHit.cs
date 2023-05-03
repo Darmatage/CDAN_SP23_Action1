@@ -18,6 +18,8 @@ public class EnemyMoveHit : MonoBehaviour {
        public float attackRange = 10;
        public bool isAttacking = false;
        private float scaleX;
+	   
+	   private bool inCage = false;
 
        void Start () {
               anim = GetComponentInChildren<Animator> ();
@@ -36,7 +38,7 @@ public class EnemyMoveHit : MonoBehaviour {
        void Update () {
               float DistToPlayer = Vector3.Distance(transform.position, target.position);
 
-              if ((target != null) && (DistToPlayer <= attackRange)){
+              if ((target != null) && (DistToPlayer <= attackRange)&&(!inCage)){
                      transform.position = Vector2.MoveTowards (transform.position, target.position, speed * Time.deltaTime);
                     //anim.SetBool("Walk", true);
                     //flip enemy to face player direction. Wrong direction? Swap the * -1.
@@ -50,7 +52,7 @@ public class EnemyMoveHit : MonoBehaviour {
        }
 
 	    public void OnCollisionEnter2D(Collision2D other){
-              if (other.gameObject.tag == "Player") {
+              if ((other.gameObject.tag == "Player")&&(!inCage)) {
                      isAttacking = true;
                      //anim.SetBool("Attack", true);
                      gameHandler.playerGetHit(damage);
@@ -69,6 +71,14 @@ public class EnemyMoveHit : MonoBehaviour {
                      //anim.SetBool("Attack", false);
               }
        }
+
+	//cage functionality:
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.gameObject.tag=="cage"){
+			inCage = true;
+		}
+	}
+
 
        //DISPLAY the range of enemy's attack when selected in the Editor
        void OnDrawGizmosSelected(){

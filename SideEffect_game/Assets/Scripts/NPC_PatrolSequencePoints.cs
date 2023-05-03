@@ -12,20 +12,23 @@ public class NPC_PatrolSequencePoints : MonoBehaviour {
        public int startSpot = 0;
        public bool moveForward = true;
 
-       // Turning
-       private int nextSpot;
-       private int previousSpot;
-       public bool faceRight = true;
+	// Turning
+	private int nextSpot;
+	private int previousSpot;
+	public bool faceRight = true;
 
-       void Start(){
+	private bool inCage = false;
+
+	void Start(){
               waitTime = startWaitTime;
               nextSpot = startSpot;
               //anim = gameObject.GetComponentInChildren<Animator>();
-       }
+	}
 
        void Update(){
+		   if (!inCage){
               transform.position = Vector2.MoveTowards(transform.position, moveSpots[nextSpot].position, speed * Time.deltaTime);
-
+		
               if (Vector2.Distance(transform.position, moveSpots[nextSpot].position) < 0.2f){
                      if (waitTime <= 0){
                             if (moveForward == true){ previousSpot = nextSpot; nextSpot += 1; }
@@ -48,6 +51,7 @@ public class NPC_PatrolSequencePoints : MonoBehaviour {
               else if ((previousSpot == (moveSpots.Length -1)) && (!faceRight)) { NPCTurn(); }
               // NOTE1: If faceRight does not change, try reversing !faceRight, above
               // NOTE2: If NPC faces the wrong direction as it moves, set the sprite Scale X = -1.
+		   }
        }
 
        private void NPCTurn(){
@@ -59,5 +63,12 @@ public class NPC_PatrolSequencePoints : MonoBehaviour {
               theScale.x *= -1;
               transform.localScale = theScale;
        }
+
+	//cage functionality:
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.gameObject.tag=="cage"){
+			inCage = true;
+		}
+	}
 
 }

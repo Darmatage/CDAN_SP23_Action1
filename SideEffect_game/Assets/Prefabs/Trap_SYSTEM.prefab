@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 5385615018172033948}
   - component: {fileID: 2530811699604120295}
   - component: {fileID: 3790340564125778542}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cage_colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5385615018185992802}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Cage_sizer
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 5385615018746362990}
   m_Layer: 6
   m_Name: Trap_SYSTEM
-  m_TagString: Untagged
+  m_TagString: cage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
