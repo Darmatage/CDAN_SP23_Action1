@@ -29,6 +29,7 @@ public class PlayerJump : MonoBehaviour {
 
 		if ((Input.GetButtonDown("Jump")) && (canJump) && (isAlive == true)) {
 			Jump();
+			GameObject.FindWithTag("MainCamera").GetComponent<CameraFollow>().JumpReset();
 		}
 	}
 
