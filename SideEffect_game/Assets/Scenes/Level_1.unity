@@ -461,6 +461,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7632907522477394096, guid: 680a5437bef77634c9a86c81bcab4849, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8170345061648453109, guid: 680a5437bef77634c9a86c81bcab4849, type: 3}
       propertyPath: m_Name
       value: GAMEHANDLER_CANVAS
