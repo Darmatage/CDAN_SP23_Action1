@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_MonsterDaughter_attack : MonoBehaviour
-{
+public class Enemy_MonsterDaughter_attack : MonoBehaviour{
      //NOTE: this script moves right-ward by default, but turn on isVertical to move upward;
        public float moveDelay = 2f;
        public float moveRate = 10f;
@@ -12,11 +11,20 @@ public class Enemy_MonsterDaughter_attack : MonoBehaviour
        public float moveTimer = 0;
        public Rigidbody2D rb2D;
        public Vector2 forceVector;
+	   public bool isAttacking = false;
+	   public int damageEnter = 5;
+	   public int damageInside = 1;
+	   private bool isInsideDamage = false;
+	   public float dmgRate = 0.5f;
+	   private float dmgTimer;
+	   private GameHandler gameHandler;
        //public GameObject startDoomEffect; //uncomment to spawn a spritesheet or particles on move start
        //private Animator anim; //uncomment for animated wall (rotating spike wheels, roiling fire or lava, etc)
        //public AudioSource startSFX;
 
        void Start(){
+		   gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
+		   dmgTimer = dmgRate;
               rb2D = gameObject.GetComponent<Rigidbody2D>();
               //anim = gameObject.GetComponentInChildren<Animator>();
        }
@@ -39,5 +47,44 @@ public class Enemy_MonsterDaughter_attack : MonoBehaviour
                      }
                      rb2D.velocity = forceVector;
               }
-       }
+			
+		if (isInsideDamage == true){
+			if (dmgTimer > 0){
+				dmgTimer -= 0.01f;     
+			}
+			else {
+				DoDamage(damageInside);
+				dmgTimer = dmgRate;
+			}
+		}
+			  
+	}
+	   
+	public void OnTriggerEnter2D(Collider2D other){
+              if (other.gameObject.tag == "Player") {
+                     isAttacking = true;
+                     //anim.SetBool("attack", true);
+                     DoDamage(damageEnter);
+              }
+	}
+
+	public void OnTriggeStay2D(Collider2D other){
+              if (other.gameObject.tag == "Player") {
+                     //isAttacking = true;
+					 isInsideDamage = true;
+              }
+	}
+
+	public void OnTriggerExit2D(Collider2D other){
+              if (other.gameObject.tag == "Player") {
+                     isAttacking = false;
+					 isInsideDamage = false;
+                     //anim.SetBool("attack", false);
+              }
+	}
+	   
+	public void DoDamage(int dmgAmt){
+		   gameHandler.playerGetHit(dmgAmt);
+	}
+	  
 }
