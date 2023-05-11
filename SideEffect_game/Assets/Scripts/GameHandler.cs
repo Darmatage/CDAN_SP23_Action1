@@ -21,6 +21,7 @@ public class GameHandler : MonoBehaviour {
       //this is a flag check. Add to other scripts: GameHandler.stairCaseUnlocked = true;
 
 	private string sceneName;
+	public static string replaySceneDeath = "Level_3";
 
 	//Pause menu
 	public static bool GameisPaused = false;
@@ -126,6 +127,7 @@ public class GameHandler : MonoBehaviour {
 		player.GetComponent<PlayerMove>().isAlive = false;
 		player.GetComponent<PlayerJump>().isAlive = false;
 		yield return new WaitForSeconds(1.0f);
+		replaySceneDeath = sceneName; //allows replaying the scene where you died
 		SceneManager.LoadScene("YouDied");
 	}
 
@@ -136,6 +138,13 @@ public class GameHandler : MonoBehaviour {
 	public void RestartGame() {
 		Time.timeScale = 1f;
 		SceneManager.LoadScene("MainMenu");
+		// Please also reset all static variables here, for new games!
+		playerHealth = StartPlayerHealth;
+	}
+
+	public void ReplayLevel() {
+		Time.timeScale = 1f;
+		SceneManager.LoadScene(replaySceneDeath);
 		// Please also reset all static variables here, for new games!
 		playerHealth = StartPlayerHealth;
 	}

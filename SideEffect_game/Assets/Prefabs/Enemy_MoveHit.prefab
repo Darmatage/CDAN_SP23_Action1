@@ -131,7 +131,7 @@ MonoBehaviour:
   damage: 10
   knockBackForce: 10
   EnemyLives: 3
-  attackRange: 3
+  attackRange: 4
   isAttacking: 0
 --- !u!114 &6549580234155962290
 MonoBehaviour:
