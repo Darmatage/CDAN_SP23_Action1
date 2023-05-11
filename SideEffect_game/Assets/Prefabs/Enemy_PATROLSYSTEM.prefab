@@ -150,8 +150,8 @@ MonoBehaviour:
   speed: 10
   startWaitTime: 2
   moveSpots:
-  - {fileID: 6120703836344582011}
   - {fileID: 6120703835341432042}
+  - {fileID: 6120703836344582011}
   startSpot: 0
   moveForward: 1
   faceRight: 1

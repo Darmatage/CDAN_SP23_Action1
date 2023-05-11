@@ -3,14 +3,14 @@ using System.Collections;
 using UnityEngine;
 
 public class NPC_PatrolSequencePoints : MonoBehaviour {
-        private Animator anim;
-       public float speed = 10f;
-       private float waitTime;
-       public float startWaitTime = 2f;
+	private Animator anim;
+	public float speed = 10f;
+	private float waitTime;
+	public float startWaitTime = 2f;
 
-       public Transform[] moveSpots;
-       public int startSpot = 0;
-       public bool moveForward = true;
+	public Transform[] moveSpots;
+	public int startSpot = 0;
+	public bool moveForward = true;
 
 	// Turning
 	private int nextSpot;
@@ -20,17 +20,17 @@ public class NPC_PatrolSequencePoints : MonoBehaviour {
 	private bool inCage = false;
 
 	void Start(){
-              waitTime = startWaitTime;
-              nextSpot = startSpot;
-              anim = gameObject.GetComponentInChildren<Animator>();
+		waitTime = startWaitTime;
+		nextSpot = startSpot;
+		anim = gameObject.GetComponentInChildren<Animator>();
 	}
 
-       void Update(){
-		   if (!inCage){
-              transform.position = Vector2.MoveTowards(transform.position, moveSpots[nextSpot].position, speed * Time.deltaTime);
+	void Update(){
+		if (!inCage){
+			transform.position = Vector2.MoveTowards(transform.position, moveSpots[nextSpot].position, speed * Time.deltaTime);
 		
-              if (Vector2.Distance(transform.position, moveSpots[nextSpot].position) < 0.2f){
-                     if (waitTime <= 0){
+			if (Vector2.Distance(transform.position, moveSpots[nextSpot].position) < 0.2f){
+				if (waitTime <= 0){
                             if (moveForward == true){ previousSpot = nextSpot; nextSpot += 1; }
                             else if (moveForward == false){ previousSpot = nextSpot; nextSpot -= 1; }
                             waitTime = startWaitTime;
