@@ -16,7 +16,8 @@ public class NPCDialogueManager : MonoBehaviour {
 	   //NOTE: we should make a char2+ display for all freindly NPCs the player can speak with 
 	   //and an int for which character it is
 	   private bool isOtherChar=true;
-	   
+	   bool playerFirst = false;
+	   bool playerOnly = false;
 	   
        public string[] dialogue;
        public int counter = 0;
@@ -39,6 +40,7 @@ public class NPCDialogueManager : MonoBehaviour {
                      counter = 0; //reset counter
               }
 			  
+			  //control the display of who is speaking
 			  if (isOtherChar==true){
 				  displayChar1.SetActive(false);
 				  displayChar2.SetActive(true);
@@ -49,12 +51,17 @@ public class NPCDialogueManager : MonoBehaviour {
 			  
        }
 
-	public void ChooseNPC(int thisNPC){
+	public void ChooseNPC(int thisNPC, bool thisPlayerFirst, bool thisPlayerOnly){
 		NPCArt.sprite = NPC_Choices[thisNPC];
+		playerFirst = thisPlayerFirst;
+		playerOnly = thisPlayerOnly;
 	}
 
 	public void OpenDialogue(){
-		isOtherChar=true;
+		
+		if ((!playerFirst)&&(!playerOnly)){isOtherChar=true;}
+		else {isOtherChar=false;}
+		
 		dialogueBox.SetActive(true);
  
 		//auto-loads the first line of dialogue
@@ -64,7 +71,7 @@ public class NPCDialogueManager : MonoBehaviour {
 	}
 
 	public void CloseDialogue(){
-              dialogueBox.SetActive(false);
+              dialogueBox.SetActive(false);//turn off the dialogue display
               dialogueTextChar1.text = "..."; //reset text
 			  dialogueTextChar2.text = "..."; //reset text
               counter = 0; //reset counter
@@ -78,16 +85,17 @@ public class NPCDialogueManager : MonoBehaviour {
         //function for the button to display next line of dialogue
 	public void DialogueNext(){
 		if (counter < dialogueLength){
-			isOtherChar = !isOtherChar;
+			if (!playerOnly){isOtherChar = !isOtherChar;}
 			dialogueTextChar1.text = dialogue[counter];
 			dialogueTextChar2.text = dialogue[counter];
 			counter +=1;
 		}
 		else { //when lines are complete:
-			dialogueBox.SetActive(false); //turn off the dialogue display
-			dialogueTextChar1.text = "..."; //reset text
-			dialogueTextChar2.text = "..."; //reset text
-			counter = 0; //reset counter
+			CloseDialogue();
+			//dialogueBox.SetActive(false); //turn off the dialogue display
+			//dialogueTextChar1.text = "..."; //reset text
+			//dialogueTextChar2.text = "..."; //reset text
+			//counter = 0; //reset counter
 		}
 	}
 

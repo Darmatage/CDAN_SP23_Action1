@@ -292,11 +292,10 @@ MonoBehaviour:
   displayChar2: {fileID: 3498256839961210696}
   NPCArt: {fileID: 3249239924854546541}
   NPC_Choices:
-  - {fileID: 21300000, guid: 787aec4c615a95d448ac90e5bee27b92, type: 3}
-  - {fileID: 21300000, guid: 489eb0a4fb94acc42a63befb7fc74664, type: 3}
-  - {fileID: 21300000, guid: 3fcf3598d0fe0a347a03cfe9d985f969, type: 3}
-  - {fileID: 21300000, guid: 37fbb1418dbc60149ad8bde0ec9dbf1b, type: 3}
-  - {fileID: 21300000, guid: 0cde7878439610b43885369d0ce4d41c, type: 3}
+  - {fileID: 21300000, guid: 3b98ab2c577c7e54597184066fd50725, type: 3}
+  - {fileID: 21300000, guid: 9cbf35dccd9c694499f9322ea3195d51, type: 3}
+  - {fileID: 21300000, guid: 1d7fbc6d41509e84e9f5035d65a299eb, type: 3}
+  - {fileID: 21300000, guid: 2e2f0806b23be6d46842c6aa6ea36d35, type: 3}
   dialogue:
   - '"Testing 1"'
   - '"Testing 2"'

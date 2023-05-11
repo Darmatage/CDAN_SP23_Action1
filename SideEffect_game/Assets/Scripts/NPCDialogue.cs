@@ -7,6 +7,8 @@ public class NPCDialogue : MonoBehaviour {
        //private Animator anim;
 	   
 	   public int whichNPC = 1; // set this number for the NPC. 1 = your kid
+	   public bool playerFirst = false; //player speaks first in back-and-forth
+	   public bool playerOnly = false; //only show the player
 	   
        private NPCDialogueManager dialogueMNGR;
        public string[] dialogue; //enter dialogue lines into the inspector for each NPC
@@ -25,7 +27,7 @@ public class NPCDialogue : MonoBehaviour {
               if (other.gameObject.tag == "Player") {
                      playerInRange = true;
                      dialogueMNGR.LoadDialogueArray(dialogue, dialogueLength);
-					 dialogueMNGR.ChooseNPC(whichNPC);
+					 dialogueMNGR.ChooseNPC(whichNPC, playerFirst, playerOnly);
                      dialogueMNGR.OpenDialogue();
                      //anim.SetBool("Chat", true);
                      //Debug.Log("Player in range");
