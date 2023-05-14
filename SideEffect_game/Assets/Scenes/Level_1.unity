@@ -469,6 +469,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GAMEHANDLER_CANVAS
       objectReference: {fileID: 0}
+    - target: {fileID: 8170345061648453109, guid: 680a5437bef77634c9a86c81bcab4849, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 680a5437bef77634c9a86c81bcab4849, type: 3}
 --- !u!1 &761664283
@@ -562,6 +566,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 635804161914300635, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4029243472372021342, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.98
@@ -624,6 +632,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
       propertyPath: whichNPC
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: playerOnly
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
@@ -1402,6 +1414,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 635804161914300635, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4029243472372021342, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.142
@@ -1464,6 +1480,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
       propertyPath: whichNPC
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: playerOnly
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
