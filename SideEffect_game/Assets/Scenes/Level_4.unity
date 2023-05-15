@@ -1117,6 +1117,18 @@ PrefabInstance:
       propertyPath: dialogue.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: Excuse me ma'am.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: 'Slow down sir, you almost bumped into me. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: Sorry.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
 --- !u!1 &166366988
@@ -19782,6 +19794,22 @@ PrefabInstance:
       propertyPath: dialogueLength
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: Whoa man, are you alright? Your in quite the rush.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: Sorry no time to talk, I must head to my lab.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: Ok, but it looks like you've seen a ghost.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: dialogue.Array.data[3]
+      value: I've seen worst than ghosts.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
 --- !u!1001 &387078231
@@ -20762,7 +20790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5696020096942413517, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 346.14
+      value: 369.17
       objectReference: {fileID: 0}
     - target: {fileID: 5696020096942413517, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -20807,6 +20835,18 @@ PrefabInstance:
     - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
       propertyPath: playerOnly
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: Time to fix all of this!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: dialogue.Array.data[3]
+      value: char 2 test 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
@@ -21154,6 +21194,22 @@ PrefabInstance:
     - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
       propertyPath: playerOnly
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: I must prevent this awful future from happening.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: I have supplies in the back of my lab.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: It should help me make adjustments to my time machine.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: dialogue.Array.data[3]
+      value: I must hurry!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
@@ -60097,7 +60153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5696020096942413517, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 367.98
+      value: 346.02
       objectReference: {fileID: 0}
     - target: {fileID: 5696020096942413517, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -60146,6 +60202,14 @@ PrefabInstance:
     - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
       propertyPath: playerFirst
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: Finally I made it to my lab!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
