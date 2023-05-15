@@ -6,6 +6,7 @@ public class PlayerHurt: MonoBehaviour{
 
       //public Animator animator;
       public Rigidbody2D rb2D;
+	  public AudioSource HurtSFX;
 
       void Start(){
            //animator = gameObject.GetComponentInChildren<Animator>();
@@ -14,6 +15,7 @@ public class PlayerHurt: MonoBehaviour{
 
       public void playerHit(){
             //animator.SetTrigger ("GetHurt");
+			HurtSFX.Play();
       }
 
       public void playerDead(){

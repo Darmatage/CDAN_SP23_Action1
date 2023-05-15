@@ -13,6 +13,9 @@ public class PickUp : MonoBehaviour{
 	  public bool isMachinePart1 = false;
 	  public bool isMachinePart2 = false;
 	  //public bool isMachinePart3 = false;
+	 // public AudioSource PickUpSFX;
+	 
+	 //since the sound effect doesn't want to fucking work I guess we're not doing it. piece of shit.
 	  
 
       public int healthBoost = 50;
