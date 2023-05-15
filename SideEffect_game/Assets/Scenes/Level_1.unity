@@ -1700,6 +1700,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
+      propertyPath: playerFirst
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828072200101862935, guid: 090b8d61b53d19c4cb78381a465fcdd0, type: 3}
       propertyPath: dialogue.Array.size
       value: 1
       objectReference: {fileID: 0}
