@@ -369,6 +369,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 168377038525892654, guid: 680a5437bef77634c9a86c81bcab4849, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 564475843619627900, guid: 680a5437bef77634c9a86c81bcab4849, type: 3}
       propertyPath: BG_Past
       value: 
@@ -455,6 +459,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4347364580275773677, guid: 680a5437bef77634c9a86c81bcab4849, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905210064518550954, guid: 680a5437bef77634c9a86c81bcab4849, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7559736166327800969, guid: 680a5437bef77634c9a86c81bcab4849, type: 3}
@@ -965,7 +973,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445039506}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &1445039508
 Camera:
   m_ObjectHideFlags: 0
