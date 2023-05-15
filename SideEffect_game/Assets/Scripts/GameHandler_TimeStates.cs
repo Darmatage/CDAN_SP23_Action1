@@ -33,6 +33,9 @@ public class GameHandler_TimeStates : MonoBehaviour{
 	private float stopPastTimestamp = 0.0f;
 	private float stopFutureTimestamp = 0.0f;
 
+	//deadBatteries
+	public bool timeMachineDead = false;
+	public GameObject timemachineCover;
 
 	void Awake(){
 		playerOBJ = GameObject.FindWithTag("Player");
@@ -50,11 +53,14 @@ public class GameHandler_TimeStates : MonoBehaviour{
 		} else {
 			goToFuture();
 		}
+		
+		if (timeMachineDead == false){timemachineCover.SetActive(false);}
+		else {timemachineCover.SetActive(true);}
     }
 
 
 	void Update(){
-		if ((Input.GetKeyDown("t"))&&(canTimeSwitch==true)){
+		if ((Input.GetKeyDown("t"))&&(canTimeSwitch==true)&&(timeMachineDead == false)){
 			if (isPast == false){
 				goToPast();
 			} else {
@@ -146,6 +152,19 @@ public class GameHandler_TimeStates : MonoBehaviour{
 			}
 		}
 	}
+	
+	public void depowerTimeMachine(){
+		timeMachineDead = true;
+		timemachineCover.SetActive(true);
+	}
+	
+	
+	
+	public void repowerTimeMachine(){
+		timeMachineDead = false;
+		timemachineCover.SetActive(false);
+	}
+	
 
 	
 }

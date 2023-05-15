@@ -12,6 +12,7 @@ public class PickUp : MonoBehaviour{
 	  public bool isTrap = false;
 	  public bool isMachinePart1 = false;
 	  public bool isMachinePart2 = false;
+	  public bool isBattery = false;
 	  //public bool isMachinePart3 = false;
 	 // public AudioSource PickUpSFX;
 	 
@@ -61,7 +62,13 @@ public class PickUp : MonoBehaviour{
 				if (isTrap == true) {
                         gameHandler.GetComponent<GameInventory>().InventoryAdd("item5");
                         //playerPowerupVFX.powerup();
-                  }					  
+                  }		
+	
+				if (isBattery == true) {
+                        gameHandler.GetComponent<GameHandler_TimeStates>().repowerTimeMachine();
+                        //playerPowerupVFX.powerup();
+                  }	
+				  
 
 
                  // if (isSpeedBoostPickUp == true) {

@@ -9,7 +9,7 @@ public class Enemy_MonsterDaughter_attack : MonoBehaviour{
        public bool isVertical = false;
        public bool startMove = false;
        public float moveTimer = 0;
-       public Rigidbody2D rb2D;
+       private Rigidbody2D rb2D;
        public Vector2 forceVector;
 	   public bool isAttacking = false;
 	   public int damageEnter = 5;
@@ -18,6 +18,7 @@ public class Enemy_MonsterDaughter_attack : MonoBehaviour{
 	   public float dmgRate = 0.5f;
 	   private float dmgTimer;
 	   private GameHandler gameHandler;
+	   public LayerMask groundLayer;
        //public GameObject startDoomEffect; //uncomment to spawn a spritesheet or particles on move start
        //private Animator anim; //uncomment for animated wall (rotating spike wheels, roiling fire or lava, etc)
        //public AudioSource startSFX;
@@ -59,6 +60,12 @@ public class Enemy_MonsterDaughter_attack : MonoBehaviour{
 		}
 			  
 	}
+	   
+	public void OnCollisionEnter2D(Collision2D other){
+		if (other.gameObject.layer == 6){
+			rb2D.isKinematic = true;
+		}
+	}   
 	   
 	public void OnTriggerEnter2D(Collider2D other){
               if (other.gameObject.tag == "Player") {
