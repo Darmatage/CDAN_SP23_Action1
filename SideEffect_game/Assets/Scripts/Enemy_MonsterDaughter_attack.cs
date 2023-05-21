@@ -19,6 +19,8 @@ public class Enemy_MonsterDaughter_attack : MonoBehaviour{
 	   private float dmgTimer;
 	   private GameHandler gameHandler;
 	   public LayerMask groundLayer;
+	   
+	   private float minHeight = 2f;
        //public GameObject startDoomEffect; //uncomment to spawn a spritesheet or particles on move start
        //private Animator anim; //uncomment for animated wall (rotating spike wheels, roiling fire or lava, etc)
        //public AudioSource startSFX;
@@ -43,6 +45,9 @@ public class Enemy_MonsterDaughter_attack : MonoBehaviour{
                      float moveForce = moveRate * Time.deltaTime;
                      if (isVertical == false){
                             forceVector = new Vector2(moveForce, 0);
+							if (transform.position.y < minHeight){
+								transform.position = new Vector2(transform.position.x, 2f);
+							}
                      } else if (isVertical == true) {
                             forceVector = new Vector2(0, moveForce);
                      }
